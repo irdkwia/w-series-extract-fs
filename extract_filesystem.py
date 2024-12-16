@@ -1,3 +1,4 @@
+import math
 import os
 
 # Extract file system to specified folder
@@ -78,7 +79,9 @@ for base_a, base_b, table_offset, start_block in file_table_info:
                         data[offset + 12 : offset + 16], "little"
                     )
                     file_blocks = [block]
-                    while file_blocks[-1] != 0xFFFF:
+                    while file_blocks[-1] != 0xFFFF and len(file_blocks) < max(
+                        math.ceil(file_size / block_size), 1
+                    ):
                         z = table_base + 2 * (file_blocks[-1] - start_block)
                         file_blocks.append(int.from_bytes(data[z : z + 2], "little"))
                     file_table[copy].append(
@@ -103,7 +106,7 @@ for file_blocks, file_size, directory_entry, file_name in file_table[0]:
     os.makedirs(f"{FOLDER}/{directory_path}", exist_ok=True)
     file_name = directory_path + "/" + file_name
     file_data = b"".join(
-        [data[x * block_size : x * block_size + block_size] for x in file_blocks[:-1]]
+        [data[x * block_size : x * block_size + block_size] for x in file_blocks]
     )[:file_size]
     assert len(file_data) == file_size
     with open(f"{FOLDER}/{file_name}", "wb") as file:
