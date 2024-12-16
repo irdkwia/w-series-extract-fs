@@ -9,7 +9,7 @@ REMOVE_INTERLEAVE = True
 # so you may need to fine tune it
 # Dumps alternate blocks to folders block_sys and block_usr
 DUMP_ALT = True
-# Use an alternate block for file systems, dictionnary of format BLOCK: ALT
+# Use an alternate block for file systems, dictionary of format BLOCK: ALT
 # You can check alternate blocks in dumped alt folders
 ALT_SYS = {}
 ALT_USR = {}
