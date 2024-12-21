@@ -3,6 +3,7 @@
 block_*
 
 vspace_*.bin
+sectors_*.bin
 unknown_data.bin
 
 files
