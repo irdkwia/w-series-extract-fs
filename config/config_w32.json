@@ -1,0 +1,38 @@
+{
+    "USR": {
+        "block_size": 512,
+        "block_unit": 8,
+        "start": 0,
+        "end": 67108864,
+        "file_tables": [{
+            "main": 20,
+            "backup": 112,
+            "entry_nb": 3708,
+            "entry_size": 92,
+            "layout": "W32",
+            "system": 300
+        },{
+            "main": 204,
+            "backup": 216,
+            "entry_nb": 300,
+            "entry_size": 68,
+            "layout": "W32",
+            "system": 11620
+        },{
+            "main": 228,
+            "backup": 242,
+            "entry_nb": 300,
+            "entry_size": 68,
+            "layout": "W32",
+            "system": 12230
+        }
+        ],
+        "directory_table": {
+            "main": 252,
+            "backup": 276,
+            "entry_nb": 200,
+            "entry_size": 104,
+            "name_at": 20
+        }
+    }
+}

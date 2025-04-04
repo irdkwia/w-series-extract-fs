@@ -1,0 +1,65 @@
+{
+    "SYS": {
+        "block_size": 2048,
+        "block_unit": 1,
+        "start": 0,
+        "end": 5767168,
+        "file_tables": [
+            {
+                "main": 192,
+                "backup": 218,
+                "entry_nb": 300,
+                "entry_size": 160,
+                "system": 274
+            }
+        ],
+        "directory_table": {
+            "main": 244,
+            "backup": 259,
+            "entry_nb": 200,
+            "entry_size": 152
+        }
+    },
+    "USR": {
+        "block_size": 2048,
+        "block_unit": 2,
+        "start": 5767168,
+        "end": 95420416,
+        "file_tables": [
+            {
+                "main": 96,
+                "backup": 323,
+                "entry_nb": 5618,
+                "entry_size": 160,
+                "system": 790
+            },
+            {
+                "main": 550,
+                "backup": 612,
+                "entry_nb": 1536,
+                "entry_size": 160,
+                "system": 13690
+            },
+            {
+                "main": 674,
+                "backup": 676,
+                "entry_nb": 25,
+                "entry_size": 160,
+                "system": 15263
+            },
+            {
+                "main": 678,
+                "backup": 703,
+                "entry_nb": 600,
+                "entry_size": 160,
+                "system": 15865
+            }
+        ],
+        "directory_table": {
+            "main": 730,
+            "backup": 761,
+            "entry_nb": 800,
+            "entry_size": 156
+        }
+    }
+}
