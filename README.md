@@ -1,2 +1,2 @@
-# w51h-extract-fs
-Extract file system from W51H phone dumps
+# w-series-extract-fs
+Extract file system from W series phone dumps
