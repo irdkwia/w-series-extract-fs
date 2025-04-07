@@ -30,6 +30,12 @@ parser.add_argument(
     help="Use last blocks instead of first.",
     action=argparse.BooleanOptionalAction,
 )
+parser.add_argument(
+    "-l",
+    "--lower",
+    help="Lower case file names.",
+    action=argparse.BooleanOptionalAction,
+)
 
 args = parser.parse_args()
 
@@ -134,12 +140,17 @@ for partition_name, partition_data in config.items():
                 if "name_at" in partition_data["directory_table"]
                 else -0x84
             )
-            directory_table[directory_index] = (
-                directory_parent,
+            dir_name = (
                 ent_data[name_at:-0x4]
                 .replace(b"\x00", b"")
                 .replace(b"\x05", b"~")
-                .decode("ascii"),
+                .decode("ascii")
+            )
+            if args.lower:
+                dir_name = dir_name.lower()
+            directory_table[directory_index] = (
+                directory_parent,
+                dir_name,
             )
 
         for f in partition_data["file_tables"]:
@@ -172,6 +183,8 @@ for partition_name, partition_data in config.items():
                 if (
                     not file_name.startswith("~") or args.try_undelete
                 ) and file_name not in ("", "."):
+                    if args.lower:
+                        file_name = file_name.lower()
                     block = int.from_bytes(ent_data[:4], "little")
                     file_dir = int.from_bytes(ent_data[6:8], "little")
                     if layout == "W32":
